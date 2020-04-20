@@ -1,7 +1,17 @@
-<h1>{{title}}</h1>
-<br>
-<h2>Pages</h2>
-<ul>
-    <li><a href="{%url 'imprint'%}">Imprint</a></li>
-    <li><a href="{%url 'tac'%}">Terms and Conditions</a></li>
-</ul>
+{% extends 'base.html' %}
+
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+    <h1>{{ title }}</h1>
+    <br>
+    <h2>Pages</h2>
+    <ul>
+        <li><a href="{% url 'imprint' %}">Imprint</a></li>
+        <li><a href="{% url 'tac' %}">Terms and Conditions</a></li>
+    </ul>
+
+{% endblock %}
+
