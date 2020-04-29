@@ -1,5 +1,6 @@
 .idea
 /venv_dermap_django
+credentials.csv
 
 
 # Created by https://www.gitignore.io/api/django,python,pycharm
