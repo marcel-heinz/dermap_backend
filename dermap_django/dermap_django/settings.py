@@ -24,7 +24,9 @@ SECRET_KEY = 'zorr9j^6b217w%u(qt=7hxceaqv!rb$@t5nif5g%qs!a$4#_so'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'dermap-django-test.eu-central-1.elasticbeanstalk.com',
+    '127.0.0.1']
 
 # Application definition
 
@@ -71,16 +73,30 @@ WSGI_APPLICATION = 'dermap_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dermap_dev',
-        'USER': 'marcel',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '5432',
+
+if 'aaxrawdihrvcq9' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['aaxrawdihrvcq9'],
+            'USER': os.environ['dermapmaster'],
+            'PASSWORD': os.environ['Mh$34el637!'],
+            'HOST': os.environ[
+                'aaxrawdihrvcq9.c5copkf3o2rp.eu-central-1.rds.amazonaws.com'],
+            'PORT': os.environ['5432'],
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'dermap_dev',
+            'USER': 'marcel',
+            'PASSWORD': '',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
