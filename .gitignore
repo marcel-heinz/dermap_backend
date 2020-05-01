@@ -1,6 +1,7 @@
 .idea
 /venv_dermap_django
 /dermap_django/credentials.csv
+/dermap_django/dermap_django/settings.py
 
 
 # Created by https://www.gitignore.io/api/django,python,pycharm
